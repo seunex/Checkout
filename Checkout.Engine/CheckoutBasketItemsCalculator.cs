@@ -4,8 +4,13 @@ namespace Checkout.Engine;
 
 public class CheckoutBasketItemsCalculator : ICheckoutBasketItemsCalculator
 {
-    public decimal CalculateTotalPrice(IEnumerable<LineItem> lineItems)
+    public decimal CalculateTotalPrice(IEnumerable<LineItem>? lineItems)
     {
-        throw new NotImplementedException();
+        //throw an exception if line items is less than 1
+        if (lineItems == null)
+        {
+            throw new ArgumentNullException(nameof(lineItems));
+        }
+        return 0;
     }
 }

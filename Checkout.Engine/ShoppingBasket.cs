@@ -4,12 +4,7 @@ namespace Checkout.Engine;
 
 public class ShoppingBasket
 {
-    private readonly ICheckoutBasketItemsCalculator _checkoutBasketItemsCalculator;
-    private List<LineItem> _lineItems = new ();
-    public ShoppingBasket(ICheckoutBasketItemsCalculator checkoutBasketItemsCalculator)
-    {
-        _checkoutBasketItemsCalculator = checkoutBasketItemsCalculator;
-    }
+    public List<LineItem> _lineItems = new ();
     //Add item to basket
     public void AddItem(LineItem item)
     {
@@ -27,11 +22,5 @@ public class ShoppingBasket
     {
         //return line items
         return _lineItems;
-    }
-    
-    //get total price
-    public decimal GetTotalPrice()
-    {
-       return  _checkoutBasketItemsCalculator.CalculateTotalPrice(GetLineItems());
     }
 }

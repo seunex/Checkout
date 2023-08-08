@@ -12,4 +12,9 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Checkout.Data\Checkout.Data.csproj" />
+    <ProjectReference Include="..\Checkout.Engine\Checkout.Engine.csproj" />
+  </ItemGroup>
+
 </Project>
