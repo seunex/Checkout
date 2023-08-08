@@ -6,5 +6,6 @@ public class LineItemSpecialPrice
     public string Name { get; set; }
     public int Quantity { get; set; }
     public decimal Price { get; set; }
-    public DateTime ExpiresOn { get; set; }
+    //In Real world application, ExpiresOn will allow us to know if the special price is still valid or not
+    public DateTime? ExpiresOn { get; set; }
 }
