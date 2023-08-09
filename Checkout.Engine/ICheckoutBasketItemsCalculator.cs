@@ -4,5 +4,5 @@ namespace Checkout.Engine;
 
 public interface ICheckoutBasketItemsCalculator
 {
-    public decimal CalculateTotalPrice(IEnumerable<LineItem> lineItems, IEnumerable<LineItemSpecialPrice> lineItemSpecialPrices);
+    public decimal CalculateTotalPrice(IEnumerable<LineItem> lineItems, IEnumerable<LineItemSpecialPrice>? lineItemSpecialPrices);
 }

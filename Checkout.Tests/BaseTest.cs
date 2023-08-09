@@ -6,16 +6,19 @@ namespace Checkout.Tests;
 
 public class BaseTest
 {
-    protected ShoppingBasket basket;
-    protected LineItem item1;
-    protected LineItem item2;
-    protected LineItem item3;
-    protected LineItem item4; 
+    protected ShoppingBasket basket { get; set; }
+    protected LineItem item1 { get; set; }
+    protected LineItem item2 { get; set; }
+    protected LineItem item3 { get; set; }
+    protected LineItem item4 { get; set; }
     
     [SetUp]
     public void Setup()
     {
         basket = new ShoppingBasket();
+        //this is the line item test data
+        //it will be list of rows from a database Table<LineItems> in a real world scenario and listed for in the 
+        //frontend for the user to select/pick from
         item1 = new LineItem
         {
             Id = 1,

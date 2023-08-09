@@ -75,5 +75,17 @@ public class CheckoutBasketCalculatorShould : BaseTest
         var totalPrice = calculator.CalculateTotalPrice(lineItems, specialPrices);
         Assert.That(totalPrice, Is.EqualTo(0));
     }
+    [Test]
+    public void CalculateTotalPriceWhenLineItemQuantityIsMoreThanOne()
+    {
+        basket.AddItem(item1);
+        basket.AddItem(item2);
+        basket.AddItem(item4);
+        basket.AddItem(item4);
+        var lineItems = basket.GetLineItems();
+        var calculator = new CheckoutBasketItemsCalculator();
+        var totalPrice = calculator.CalculateTotalPrice(lineItems);
+        Assert.That(totalPrice, Is.EqualTo(110));
+    }
 }
 
