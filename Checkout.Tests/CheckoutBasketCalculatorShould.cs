@@ -14,7 +14,6 @@ public class CheckoutBasketCalculatorShould : BaseTest
         basket.AddItem(item1);
         basket.AddItem(item2);
         basket.AddItem(item2);
-        basket.AddItem(item2);
         var lineItems = basket.GetLineItems();
         var specialPrices = new List<LineItemSpecialPrice>
         {
@@ -63,5 +62,18 @@ public class CheckoutBasketCalculatorShould : BaseTest
         Assert.That(totalPrice, Is.EqualTo(95));
     }
     
+    [Test]
+    public void CalculateTotalPriceForBasketWhenLineItemsIsEmpty()
+    {
+        var lineItems = basket.GetLineItems();
+        var specialPrices = new List<LineItemSpecialPrice>
+        {
+            new () { Id = 1, Quantity = 3, Name = "A", Price = 130},
+            new () { Id = 2, Quantity = 2, Name = "B", Price = 45}
+        };
+        var calculator = new CheckoutBasketItemsCalculator();
+        var totalPrice = calculator.CalculateTotalPrice(lineItems, specialPrices);
+        Assert.That(totalPrice, Is.EqualTo(0));
+    }
 }
 
